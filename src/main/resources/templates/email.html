@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" >
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>email</title>
+	<link rel="stylesheet" type="text/css" href="/Style.css">
+	<script src="validation.js"></script>
+</head>
+
+<body>
+	<a href="/">
+
+		<h1>Home</h1>
+
+	</a>
+	<form th:action="@{/email}" method="post">
+		<label>Enter Email</label>
+		<input type="email"  name="email"><br>
+		<input type="submit" value="Send Email"> 
+	</form>
+</body>
+
+</html>

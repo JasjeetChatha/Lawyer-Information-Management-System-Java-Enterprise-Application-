@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="ISO-8859-1">
+<title>login</title>
+</head>
+<body>
+	<a href="/">
+
+		<h1>Home</h1>
+
+	</a>
+    <div th:if="${param.failed}" class="alert">
+        <h1>Invalid Credentials</h1>
+    </div>
+<form method="post" th:action="@{/login}">
+        <h2>Please sign in</h2>
+        <p>
+          <label for="username" class="sr-only">Username</label>
+          <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        </p>
+        <p>
+          <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+
+        <input type="submit" value="Login">
+      </form>
+      <a href="/register"><h1>Register</h1></a>
+      </body>
+</html>

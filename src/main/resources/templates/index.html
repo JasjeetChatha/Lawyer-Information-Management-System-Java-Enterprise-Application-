@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link rel="stylesheet" type="text/css" href="/Style.css">
+
+</head>
+<body >
+<a href="/add"><h1>Add Lawyers</h1></a>
+<a href="/view"><h1>Show List</h1></a>
+<a href="/email"><h1>Email</h1></a>
+<a href="/login"><h1>Login</h1></a>
+
+<div sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post">
+            <input type="submit" value="logout">
+            </form>
+</body>
+</html>

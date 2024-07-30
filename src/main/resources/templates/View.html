@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>view</title>
+	<link rel="stylesheet" type="text/css" href="/Style.css">
+	<script src="validation.js"></script>
+</head>
+
+<body>
+	<h1>View</h1>
+	<a href="/">
+		<h1>Home</h1>
+	</a>
+		<table>
+
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Salary</th>
+				<th>YearsExperience</th>
+				<th>Delete</th>
+			</tr>
+			<tr th:each="lawyers : ${lawyer}">
+				<td th:text="${lawyers.id}"></td>
+				<td th:text="${lawyers.name}"></td>
+				<td th:text="${lawyers.salary}"></td>
+				<td th:text="${lawyers.yearsExperience}"></td>
+				<td><a th:href="@{/delete/{id}(id=${lawyers.id})}">Delete</a></td>
+			</tr>
+		</table>
+	</div>
+
+
+	
+
+	<div sec:authorize="isAuthenticated()">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="logout">
+		</form>
+	
+	</div>
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var priceElements = document.querySelectorAll('td:nth-child(3)');
+    
+
+    priceElements.forEach(function(element) {
+        var price = parseFloat(element.textContent);
+        
+
+        // Format the price directly in the table cell
+        element.textContent = ' $' + formatDecimal(price);
+    });
+
+   
+});
+
+function formatDecimal(value) {
+    return value.toFixed(2);
+}
+</script>
+
+
+</body>
+
+</html>

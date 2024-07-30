@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.thymeleaf.org">
+
+
+<head>
+
+	<meta charset="ISO-8859-1">
+
+	<title>Add Lawyer</title>
+
+	<link rel="stylesheet" type="text/css" href="/Style.css">
+
+	<script src="/validation.js"></script>
+
+</head>
+
+
+<body>
+
+	<a href="/">
+
+		<h1>Home</h1>
+
+	</a>
+
+	<form th:action="@{/add}" method="post" th:object="${lawyer}">
+
+		
+
+		<label>Name:</label>
+<input type="text" th:field="*{name}"><br><br>
+		
+		<label>Salary:</label>
+
+		<input type="number" th:field="*{salary}" id="price" oninput="validatePriceInput()" step="0.01"><br><br>
+
+		<label >YearsExperience:</label>
+
+		<input type="number" th:field="*{yearsExperience}"><br><br>
+
+		
+
+
+<input type="submit" value="Add Lawyer">
+
+
+	</form>
+
+	<div sec:authorize="isAuthenticated()">
+
+		<form th:action="@{/logout}" method="post">
+
+			<input type="submit" value="logout">
+
+		</form>
+
+</body>
+
+
+</html>
